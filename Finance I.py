@@ -69,3 +69,28 @@ def amortized_loan(pv, r, n):
 
 print(amortized_loan(6000, 15, 4))
 
+
+def fv_nonannual(pv, r, n, m):
+    factor = (1 + r/(100*m))**(m*n)
+    fv = pv*factor
+    return round(fv, 2)
+
+
+print(fv_nonannual(100, 12, 5, 4))
+
+
+def monthly_mortgage(pv, r, n, m):
+    factor = (1 + r/(100*m))**(m*n)
+    pmt = pv/((1 - 1/factor)/(r/(100*m)))
+    return round(pmt, 2)
+
+
+print(monthly_mortgage(100000, 8, 25, 12))
+
+
+def perpetuity(pp, r):
+    pv = pp/(r/100)
+    return round(pv, 2)
+
+
+print(perpetuity(500, 8))
